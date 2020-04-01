@@ -1,0 +1,1368 @@
+  [1m[35m (154.2ms)[0m  [1m[35mCREATE DATABASE "userTest_development" ENCODING = 'unicode'[0m
+  [1m[35m (58.5ms)[0m  [1m[35mCREATE DATABASE "userTest_test" ENCODING = 'unicode'[0m
+  [1m[35m (25.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7977705933213692130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200325014149)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200325014149"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBarista (20200325014230)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "barista" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200325014230"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-25 01:46:28.310288"], ["updated_at", "2020-03-25 01:46:28.310288"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7977705933213692130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "TestFirst"], ["lastName", "TestSecond"], ["email", "test@email.com"], ["password", "password"], ["barista", true], ["created_at", "2020-03-25 01:46:36.668886"], ["updated_at", "2020-03-25 01:46:36.668886"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "TestFirst"], ["lastName", "TestSecond"], ["email", "test@email.com"], ["password", "password"], ["barista", true], ["created_at", "2020-03-25 01:47:45.636541"], ["updated_at", "2020-03-25 01:47:45.636541"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-03-24 21:51:23 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.9ms | Allocations: 479)
+Completed 200 OK in 55ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 2622)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-03-24 21:51:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-03-24 21:51:27 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/user" for ::1 at 2020-03-24 21:51:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-03-24 21:51:39 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 192)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 742)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (8039.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "userTest_development"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (31.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "userTest_development"[0m
+  [1m[35m (42.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "userTest_test"[0m
+  [1m[35m (129.8ms)[0m  [1m[35mCREATE DATABASE "userTest_development" ENCODING = 'unicode'[0m
+  [1m[35m (53.2ms)[0m  [1m[35mCREATE DATABASE "userTest_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "barista" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "barista" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200325014230)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200325014149);
+
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-25 01:55:22.271124"], ["updated_at", "2020-03-25 01:55:22.271124"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4f98aebff8a3bc97c252941e49ebe1890fa90801"], ["created_at", "2020-03-25 01:55:22.277192"], ["updated_at", "2020-03-25 01:55:22.277192"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "barista" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "barista" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "email" character varying, "password" character varying, "barista" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200325014230)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200325014149);
+
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-25 01:55:22.321463"], ["updated_at", "2020-03-25 01:55:22.321463"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-03-25 01:55:22.325892"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4f98aebff8a3bc97c252941e49ebe1890fa90801"], ["created_at", "2020-03-25 01:55:22.331742"], ["updated_at", "2020-03-25 01:55:22.331742"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "TestFirst"], ["lastName", "TestSecond"], ["email", "test@email.com"], ["password", "password"], ["barista", true], ["created_at", "2020-03-25 01:55:22.369711"], ["updated_at", "2020-03-25 01:55:22.369711"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7977705933213692130)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7977705933213692130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-03-24 22:26:45 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 316)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 1597)
+
+
+Started GET "/users" for ::1 at 2020-03-24 22:26:49 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+Completed 200 OK in 21ms (Views: 12.6ms | ActiveRecord: 5.5ms | Allocations: 6737)
+
+
+Started GET "/users" for ::1 at 2020-03-24 22:33:44 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2020-03-24 22:34:22 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.9ms | Allocations: 202)
+Completed 200 OK in 26ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 882)
+
+
+Started GET "/users" for ::1 at 2020-03-24 22:34:25 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/users" for ::1 at 2020-03-24 22:34:36 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/users" for ::1 at 2020-03-24 22:35:05 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/users" for ::1 at 2020-03-24 22:35:35 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/users" for ::1 at 2020-03-24 22:35:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 4.1ms | Allocations: 6796)
+
+
+Started GET "/users/1" for ::1 at 2020-03-24 22:36:01 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for UsersController):
+  
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2" for ::1 at 2020-03-24 22:37:16 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for UsersController):
+  
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-03-24 22:37:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 991)
+
+
+Started GET "/users" for ::1 at 2020-03-24 22:44:14 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (79.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 91ms (Views: 6.8ms | ActiveRecord: 79.5ms | Allocations: 5939)
+
+
+Started GET "/users/1" for ::1 at 2020-03-24 22:44:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 67)
+
+
+Started GET "/users/1" for ::1 at 2020-03-24 22:47:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 7.5ms | Allocations: 6380)
+
+
+Started GET "/users/1" for ::1 at 2020-03-24 22:47:59 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.8ms | Allocations: 6030)
+
+
+Started GET "/users/2" for ::1 at 2020-03-24 22:48:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 603)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/users_controller.rb:9:in `show'
+Started GET "/users/1" for ::1 at 2020-03-24 22:48:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 758)
+
+
+Started GET "/users" for ::1 at 2020-03-25 18:32:01 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 8.0ms | ActiveRecord: 10.8ms | Allocations: 6667)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 18:32:44 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2384)
+
+
+Started POST "/users/register?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 18:33:26 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.0ms | Allocations: 70002)
+
+
+  
+NameError (undefined local variable or method `user_params' for #<UsersController:0x00007fe1f38f7528>
+Did you mean?  user_path):
+  
+app/controllers/users_controller.rb:16:in `register'
+Started POST "/users/register?email=%22test@email.com%22&password=[FILTERED]" for ::1 at 2020-03-25 22:58:13 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"\"test@email.com\"", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (6.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "\"test@email.com\""], ["password", "\"password\""], ["created_at", "2020-03-26 02:58:13.943313"], ["updated_at", "2020-03-26 02:58:13.943313"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 28ms (Views: 1.0ms | ActiveRecord: 16.4ms | Allocations: 8246)
+
+
+Started GET "/users" for ::1 at 2020-03-25 22:58:43 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 3.1ms | Allocations: 1140)
+
+
+Started POST "/users/register?email=%22test@email.com%22&password=[FILTERED]&firstName=%22testName&lastName=%22TestLast%22" for ::1 at 2020-03-25 22:59:20 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"\"test@email.com\"", "password"=>"[FILTERED]", "firstName"=>"\"testName", "lastName"=>"\"TestLast\""}
+[31mUnpermitted parameters: :firstName, :lastName[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "\"test@email.com\""], ["password", "\"password\""], ["created_at", "2020-03-26 02:59:20.083977"], ["updated_at", "2020-03-26 02:59:20.083977"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 2349)
+
+
+Started POST "/users/register?email=%22test@email.com%22&password=[FILTERED]&firstName=%22testName&lastName=%22TestLast%22" for ::1 at 2020-03-25 22:59:52 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"\"test@email.com\"", "password"=>"[FILTERED]", "firstName"=>"\"testName", "lastName"=>"\"TestLast\""}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "\"testName"], ["lastName", "\"TestLast\""], ["email", "\"test@email.com\""], ["password", "\"password\""], ["created_at", "2020-03-26 02:59:53.137585"], ["updated_at", "2020-03-26 02:59:53.137585"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 108ms (Views: 0.6ms | ActiveRecord: 93.6ms | Allocations: 7604)
+
+
+Started POST "/users/register?email=test@email.com&password=[FILTERED]&firstName=testName&lastName=TestLast" for ::1 at 2020-03-25 23:00:10 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"testName", "lastName"=>"TestLast"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "testName"], ["lastName", "TestLast"], ["email", "test@email.com"], ["password", "password"], ["created_at", "2020-03-26 03:00:10.736495"], ["updated_at", "2020-03-26 03:00:10.736495"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 2382)
+
+
+Started POST "/users/register?email=test@email.com&password=[FILTERED]&firstName=testName&lastName=TestLast&barista=true" for ::1 at 2020-03-25 23:00:54 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"testName", "lastName"=>"TestLast", "barista"=>"true"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testName"], ["lastName", "TestLast"], ["email", "test@email.com"], ["password", "password"], ["barista", true], ["created_at", "2020-03-26 03:00:54.928265"], ["updated_at", "2020-03-26 03:00:54.928265"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 16ms (Views: 0.7ms | ActiveRecord: 4.6ms | Allocations: 7605)
+
+
+Started POST "/users/register?email=test@email.com&password=[FILTERED]&firstName=testName&lastName=TestLast&barista=false" for ::1 at 2020-03-25 23:01:04 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"testName", "lastName"=>"TestLast", "barista"=>"false"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testName"], ["lastName", "TestLast"], ["email", "test@email.com"], ["password", "password"], ["barista", false], ["created_at", "2020-03-26 03:01:04.232478"], ["updated_at", "2020-03-26 03:01:04.232478"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 2393)
+
+
+Started GET "/users" for ::1 at 2020-03-25 23:07:37 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1916)
+
+
+Started GET "/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:08:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:08:17 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:08:33 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 22ms (Views: 1.5ms | ActiveRecord: 2.6ms | Allocations: 2352)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:08:57 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (21.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 30ms (Views: 3.9ms | ActiveRecord: 21.3ms | Allocations: 764)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:09:02 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 758)
+
+
+Started POST "/users/login?email=test@email.comdd&password=[FILTERED]" for ::1 at 2020-03-25 23:09:06 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.comdd", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.comdd"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 611)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:11:15 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+        if @user && @user(params[:password])
+                         ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+...ser && @user(params[:password])
+...                              ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:28: else without rescue is useless
+        else
+        ^~~~
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:28: else without rescue is useless
+app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:28: else without rescue is useless
+app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:12:18 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+        if @user(password: params[:password])
+                ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+...er(password: params[:password])
+...                              ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:28: else without rescue is useless
+        else
+        ^~~~
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:28: else without rescue is useless
+app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:26: syntax error, unexpected '(', expecting then or ';' or '\n'
+app/controllers/users_controller.rb:26: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:28: else without rescue is useless
+app/controllers/users_controller.rb:43: syntax error, unexpected end, expecting end-of-input
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:12:34 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 10.5ms | Allocations: 6115)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:13:05 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 3.2ms | Allocations: 6015)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:13:48 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+...il: params[:email] && password: params[:password])
+...                              ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+...&& password: params[:password])
+...                              ^):
+  
+app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:16:56 -0400
+  
+SyntaxError (/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+...il: params[:email] && password: params[:password])
+...                              ^
+/Users/giudelvecchio/userTest/app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+...&& password: params[:password])
+...                              ^):
+  
+app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+app/controllers/users_controller.rb:25: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:25: syntax error, unexpected ')', expecting end
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:17:17 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 19ms (Views: 0.7ms | ActiveRecord: 7.4ms | Allocations: 6049)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:17:48 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 6051)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:18:41 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 8.1ms | Allocations: 6022)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:19:11 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 771)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:19:59 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 10ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 5920)
+
+
+Started POST "/users/login?email=test@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:20:11 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 777)
+
+
+Started GET "/users" for ::1 at 2020-03-25 23:20:51 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 2.5ms | Allocations: 6973)
+
+
+Started POST "/users/register?email=g@email.com&password=[FILTERED]&firstName=testName&lastName=TestLast&barista=false" for ::1 at 2020-03-25 23:21:13 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"g@email.com", "password"=>"[FILTERED]", "firstName"=>"testName", "lastName"=>"TestLast", "barista"=>"false"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testName"], ["lastName", "TestLast"], ["email", "g@email.com"], ["password", "monkey"], ["barista", false], ["created_at", "2020-03-26 03:21:13.402064"], ["updated_at", "2020-03-26 03:21:13.402064"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 18ms (Views: 2.0ms | ActiveRecord: 4.6ms | Allocations: 2454)
+
+
+Started POST "/users/login?email=g@email.com&password=[FILTERED]" for ::1 at 2020-03-25 23:21:26 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"g@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "g@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 865)
+
+
+Started POST "/users/register?email=g@email.com&password=[FILTERED]&firstName=testName&lastName=TestLast&barista=false" for ::1 at 2020-03-26 21:02:05 -0400
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"g@email.com", "password"=>"[FILTERED]", "firstName"=>"testName", "lastName"=>"TestLast", "barista"=>"false"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (8.2ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testName"], ["lastName", "TestLast"], ["email", "g@email.com"], ["password", "monkey"], ["barista", false], ["created_at", "2020-03-27 01:02:05.568567"], ["updated_at", "2020-03-27 01:02:05.568567"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 24ms (Views: 0.9ms | ActiveRecord: 12.8ms | Allocations: 8335)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:02:58 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"Test", "last_name"=>"Stets", "email"=>"sfsfs", "password"=>"[FILTERED]", "user"=>{"email"=>"sfsfs", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :first_name, :last_name, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sfsfs"], ["password", "sfsfs"], ["created_at", "2020-03-27 01:02:58.182649"], ["updated_at", "2020-03-27 01:02:58.182649"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 7ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 2369)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:04:22 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"Test", "last_name"=>"Stets", "email"=>"sfsfs", "password"=>"[FILTERED]", "user"=>{"email"=>"sfsfs", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :first_name, :last_name, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sfsfs"], ["password", "sfsfs"], ["created_at", "2020-03-27 01:04:22.903688"], ["updated_at", "2020-03-27 01:04:22.903688"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 2366)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:04:34 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"Test", "last_name"=>"Stets", "email"=>"sfsfs", "password"=>"[FILTERED]", "user"=>{"email"=>"sfsfs", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :first_name, :last_name, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sfsfs"], ["password", "passwwword"], ["created_at", "2020-03-27 01:04:34.848217"], ["updated_at", "2020-03-27 01:04:34.848217"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 2348)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:05:10 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"email"=>"etest", "password"=>"[FILTERED]", "user"=>{"email"=>"etest", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "etest"], ["password", "passss"], ["created_at", "2020-03-27 01:05:10.731291"], ["updated_at", "2020-03-27 01:05:10.731291"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 2344)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:05:45 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"", "lastName"=>"", "email"=>"sdsdsdsdds", "password"=>"[FILTERED]", "user"=>{"firstName"=>"", "lastName"=>"", "email"=>"sdsdsdsdds", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", ""], ["lastName", ""], ["email", "sdsdsdsdds"], ["password", "test"], ["created_at", "2020-03-27 01:05:45.721472"], ["updated_at", "2020-03-27 01:05:45.721472"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2406)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:07:39 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"Dsdsds", "last_name"=>"Last", "email"=>"emal", "password"=>"[FILTERED]", "user"=>{"email"=>"emal", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :first_name, :last_name, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "emal"], ["password", "password"], ["created_at", "2020-03-27 01:07:39.497669"], ["updated_at", "2020-03-27 01:07:39.497669"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 53ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 2371)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:08:26 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"First", "last_name"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :first_name, :last_name, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "email"], ["password", "password"], ["created_at", "2020-03-27 01:08:26.674939"], ["updated_at", "2020-03-27 01:08:26.674939"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 7ms (Views: 1.1ms | ActiveRecord: 1.1ms | Allocations: 2366)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:09:57 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"First", "last_name"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 5.6ms | Allocations: 4711)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'first_name' for User.):
+  
+app/controllers/users_controller.rb:16:in `register'
+Started POST "/users/register" for ::1 at 2020-03-26 21:10:22 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"First", "last_name"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'first_name' for User.):
+  
+app/controllers/users_controller.rb:16:in `register'
+Started POST "/users/register" for ::1 at 2020-03-26 21:11:50 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"First", "last_name"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.5ms | Allocations: 5081)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'first_name' for User.):
+  
+app/controllers/users_controller.rb:16:in `register'
+Started POST "/users/register" for ::1 at 2020-03-26 21:12:07 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"first_name"=>"First", "last_name"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'first_name' for User.):
+  
+app/controllers/users_controller.rb:16:in `register'
+Started POST "/users/register" for ::1 at 2020-03-26 21:13:04 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"", "lastName"=>"", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"firstName"=>"", "lastName"=>"", "email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :firstName, :lastName, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "email"], ["password", "password"], ["created_at", "2020-03-27 01:13:04.912632"], ["updated_at", "2020-03-27 01:13:04.912632"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 7ms (Views: 0.7ms | ActiveRecord: 2.6ms | Allocations: 2712)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:15:15 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"First", "lastName"=>"Last", "email"=>"emai", "password"=>"[FILTERED]", "user"=>{"firstName"=>"First", "lastName"=>"Last", "email"=>"emai", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :firstName, :lastName, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "emai"], ["password", "password"], ["created_at", "2020-03-27 01:15:15.593892"], ["updated_at", "2020-03-27 01:15:15.593892"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2352)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:16:28 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"First", "lastName"=>"Last", "email"=>"emai", "password"=>"[FILTERED]", "user"=>{"firstName"=>"First", "lastName"=>"Last", "email"=>"emai", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "First"], ["lastName", "Last"], ["email", "emai"], ["password", "password"], ["created_at", "2020-03-27 01:16:28.696566"], ["updated_at", "2020-03-27 01:16:28.696566"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 14ms (Views: 0.9ms | ActiveRecord: 5.9ms | Allocations: 7498)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:22:02 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"First", "lastName"=>"Last", "email"=>"emeial", "password"=>"[FILTERED]", "user"=>{"firstName"=>"First", "lastName"=>"Last", "email"=>"emeial", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "First"], ["lastName", "Last"], ["email", "emeial"], ["password", "password"], ["created_at", "2020-03-27 01:22:02.803421"], ["updated_at", "2020-03-27 01:22:02.803421"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 7ms (Views: 0.6ms | ActiveRecord: 2.9ms | Allocations: 2424)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:23:20 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"First", "lastName"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"firstName"=>"First", "lastName"=>"Last", "email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "First"], ["lastName", "Last"], ["email", "email"], ["password", "password"], ["created_at", "2020-03-27 01:23:20.497761"], ["updated_at", "2020-03-27 01:23:20.497761"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 17ms (Views: 2.6ms | ActiveRecord: 1.5ms | Allocations: 2424)
+
+
+Started POST "/users/register" for ::1 at 2020-03-26 21:25:55 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"First", "lastName"=>"Last", "email"=>"email", "password"=>"[FILTERED]", "user"=>{"firstName"=>"First", "lastName"=>"Last", "email"=>"email", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "First"], ["lastName", "Last"], ["email", "email"], ["password", "password"], ["created_at", "2020-03-27 01:25:55.830758"], ["updated_at", "2020-03-27 01:25:55.830758"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2424)
+
+
+Started POST "/users/register?email=baby@email.com&password=[FILTERED]&firstName=testFirst&lastName=TestLast&barista=false" for ::1 at 2020-03-27 14:28:31 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "firstName"=>"testFirst", "lastName"=>"TestLast", "barista"=>"false"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (5.0ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testFirst"], ["lastName", "TestLast"], ["email", "baby@email.com"], ["password", "baby"], ["barista", false], ["created_at", "2020-03-27 18:28:31.903085"], ["updated_at", "2020-03-27 18:28:31.903085"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 23ms (Views: 0.7ms | ActiveRecord: 12.1ms | Allocations: 8334)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 14:28:49 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 15ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1123)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 14:28:55 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 775)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:30:37 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 17ms (Views: 1.6ms | ActiveRecord: 10.7ms | Allocations: 786)
+
+
+Started GET "/users" for ::1 at 2020-03-27 14:30:59 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 4.1ms | Allocations: 4183)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:32:00 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 8ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 631)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:34:56 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:35:41 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 631)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:35:46 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:37:00 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:37:29 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"tests", "password"=>"[FILTERED]", "user"=>{"email"=>"tests", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tests"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 991)
+
+
+  
+NoMethodError (undefined method `password' for nil:NilClass):
+  
+app/controllers/users_controller.rb:26:in `login'
+Started POST "/users/login" for ::1 at 2020-03-27 14:37:41 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 796)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:38:21 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:38:41 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 783)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:39:29 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 750)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:39:58 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1000)
+
+
+  
+NoMethodError (undefined method `password' for nil:NilClass):
+  
+app/controllers/users_controller.rb:26:in `login'
+Started POST "/users/login" for ::1 at 2020-03-27 14:42:21 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 750)
+
+
+Started POST "/users/register" for ::1 at 2020-03-27 14:44:04 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"D", "lastName"=>"D", "email"=>"", "password"=>"[FILTERED]", "user"=>{"firstName"=>"D", "lastName"=>"D", "email"=>"", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (6.1ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "D"], ["lastName", "D"], ["email", ""], ["password", "d"], ["created_at", "2020-03-27 18:44:04.187943"], ["updated_at", "2020-03-27 18:44:04.187943"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 18ms (Views: 1.3ms | ActiveRecord: 8.4ms | Allocations: 2437)
+
+
+Started GET "/users" for ::1 at 2020-03-27 14:44:17 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.6ms | Allocations: 4344)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:44:33 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:46:41 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 763)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 14:48:00 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 759)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 14:48:07 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 759)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:48:24 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 766)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:49:12 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 632)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:49:24 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "user"=>{"email"=>"baby@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:49:41 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 631)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 14:49:52 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 749)
+
+
+Started POST "/users/register" for ::1 at 2020-03-27 16:07:41 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"Gi", "lastName"=>"Gd", "email"=>"dfd@email.com", "password"=>"[FILTERED]", "user"=>{"firstName"=>"Gi", "lastName"=>"Gd", "email"=>"dfd@email.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (7.1ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "Gi"], ["lastName", "Gd"], ["email", "dfd@email.com"], ["password", "password"], ["created_at", "2020-03-27 20:07:41.175031"], ["updated_at", "2020-03-27 20:07:41.175031"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 21ms (Views: 0.9ms | ActiveRecord: 16.6ms | Allocations: 7497)
+
+
+Started GET "/users" for ::1 at 2020-03-27 17:10:08 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 23ms (Views: 10.8ms | ActiveRecord: 10.6ms | Allocations: 10214)
+
+
+Started POST "/users/register?email=baby@email.com&password=[FILTERED]&firstName=testFirst&lastName=TestLast&barista=false" for ::1 at 2020-03-27 17:10:14 -0400
+Processing by UsersController#register as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]", "firstName"=>"testFirst", "lastName"=>"TestLast", "barista"=>"false"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (60.8ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "barista", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "testFirst"], ["lastName", "TestLast"], ["email", "baby@email.com"], ["password", "baby"], ["barista", false], ["created_at", "2020-03-27 21:10:14.655127"], ["updated_at", "2020-03-27 21:10:14.655127"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 67ms (Views: 0.9ms | ActiveRecord: 62.4ms | Allocations: 2678)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 17:11:10 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 14ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 2220)
+
+
+Started POST "/users/login?email=baby@email.com&password=[FILTERED]" for ::1 at 2020-03-27 17:11:16 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"baby@email.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "baby@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 775)
+
+
+Started POST "/users/register" for ::1 at 2020-03-27 17:11:50 -0400
+Processing by UsersController#register as HTML
+  Parameters: {"firstName"=>"Ertrttsdq", "lastName"=>"Sfsfds", "email"=>"fdsffs", "password"=>"[FILTERED]", "user"=>{"firstName"=>"Ertrttsdq", "lastName"=>"Sfsfds", "email"=>"fdsffs", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstName", "Ertrttsdq"], ["lastName", "Sfsfds"], ["email", "fdsffs"], ["password", "password"], ["created_at", "2020-03-27 21:11:50.218623"], ["updated_at", "2020-03-27 21:11:50.218623"]]
+  ↳ app/controllers/users_controller.rb:17:in `register'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `register'
+Completed 201 Created in 8ms (Views: 0.9ms | ActiveRecord: 2.4ms | Allocations: 2408)
+
+
+Started GET "/users" for ::1 at 2020-03-27 17:11:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 4796)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:12:06 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"fdsffs", "password"=>"[FILTERED]", "user"=>{"email"=>"fdsffs", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fdsffs"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 763)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:13:22 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 635)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:13:32 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 766)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:13:54 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 749)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:14:14 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 766)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:15:30 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 749)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:16:02 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 749)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:16:20 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 629)
+
+
+Started POST "/users/login" for ::1 at 2020-03-27 17:16:27 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"email", "password"=>"[FILTERED]", "user"=>{"email"=>"email", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 749)
+
+
